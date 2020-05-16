@@ -4,12 +4,12 @@ import PackageDescription
 
 let package = Package(
     name: "Rogue",
-    platforms: [.macOS(.v10_10),
-                .iOS(.v9)],
+    platforms: [.macOS(.v10_12),
+                .iOS(.v10)],
     products: [
         .library(name: "Rogue", type: .`static`, targets: ["Rogue"]),
         .executable(name: "rogue-tool", targets: ["rogue-tool"]),
-        .library(name: "RogueToolLibrary", targets: ["Rogue"])
+        .library(name: "RogueToolLibrary", type: .dynamic, targets: ["RogueToolLibrary"])
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser", from: "0.0.1")
@@ -22,6 +22,7 @@ let package = Package(
             .product(name: "ArgumentParser", package: "swift-argument-parser"),
         ], path: "rogue-tool"),
 
-        .target(name: "RogueToolLibrary", dependencies: [], path: "RogueToolLibrary")
+        .target(name: "RogueToolLibrary", dependencies: [], path: "RogueToolLibrary",
+        exclude: ["initializer.s", "Runtime/RuntimeClass.m"])
     ]
 )

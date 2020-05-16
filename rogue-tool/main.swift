@@ -6,7 +6,7 @@
 import Foundation
 import ArgumentParser
 
-struct RougeTool: ParsableCommand {
+struct RogueTool: ParsableCommand {
     static var configuration = CommandConfiguration(
         abstract: "A tool for development with Rouge.",
         version: "1.0.0",
@@ -15,4 +15,4 @@ struct RougeTool: ParsableCommand {
 
 }
 
-RougeTool.main()
+RogueTool.main()

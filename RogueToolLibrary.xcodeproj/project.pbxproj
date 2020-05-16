@@ -1,0 +1,356 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FA66F753246F6AF6001DC8D7 /* RuntimeClass.m in Sources */ = {isa = PBXBuildFile; fileRef = FA66F74C246F6AF0001DC8D7 /* RuntimeClass.m */; };
+		FA66F754246F6AF8001DC8D7 /* RuntimeClass+Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA66F74D246F6AF0001DC8D7 /* RuntimeClass+Swift.swift */; };
+		FAD0CD1C246F51F900AC2DA6 /* RogueToolLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD0CD1B246F51F900AC2DA6 /* RogueToolLibrary.swift */; };
+		FAD0CD23246F521300AC2DA6 /* initializer.s in Sources */ = {isa = PBXBuildFile; fileRef = FAD0CD22246F521300AC2DA6 /* initializer.s */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		FAD0CD16246F51F800AC2DA6 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		FA66F74C246F6AF0001DC8D7 /* RuntimeClass.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RuntimeClass.m; sourceTree = "<group>"; };
+		FA66F74D246F6AF0001DC8D7 /* RuntimeClass+Swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RuntimeClass+Swift.swift"; sourceTree = "<group>"; };
+		FA66F74E246F6AF0001DC8D7 /* RuntimeClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RuntimeClass.h; sourceTree = "<group>"; };
+		FA66F750246F6AF0001DC8D7 /* BridgingHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingHeader.h; sourceTree = "<group>"; };
+		FA66F752246F6AF0001DC8D7 /* Reveal.protocols.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Reveal.protocols.h; sourceTree = "<group>"; };
+		FAD0CD18246F51F900AC2DA6 /* RogueToolLibrary.dylib */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = RogueToolLibrary.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAD0CD1B246F51F900AC2DA6 /* RogueToolLibrary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RogueToolLibrary.swift; sourceTree = "<group>"; };
+		FAD0CD22246F521300AC2DA6 /* initializer.s */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = initializer.s; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FAD0CD15246F51F800AC2DA6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FA66F74B246F6AF0001DC8D7 /* Runtime */ = {
+			isa = PBXGroup;
+			children = (
+				FA66F74C246F6AF0001DC8D7 /* RuntimeClass.m */,
+				FA66F74D246F6AF0001DC8D7 /* RuntimeClass+Swift.swift */,
+				FA66F74E246F6AF0001DC8D7 /* RuntimeClass.h */,
+			);
+			path = Runtime;
+			sourceTree = "<group>";
+		};
+		FA66F74F246F6AF0001DC8D7 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				FA66F750246F6AF0001DC8D7 /* BridgingHeader.h */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		FA66F751246F6AF0001DC8D7 /* External */ = {
+			isa = PBXGroup;
+			children = (
+				FA66F752246F6AF0001DC8D7 /* Reveal.protocols.h */,
+			);
+			path = External;
+			sourceTree = "<group>";
+		};
+		FAD0CD0F246F51F800AC2DA6 = {
+			isa = PBXGroup;
+			children = (
+				FAD0CD1A246F51F900AC2DA6 /* RogueToolLibrary */,
+				FAD0CD19246F51F900AC2DA6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FAD0CD19246F51F900AC2DA6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FAD0CD18246F51F900AC2DA6 /* RogueToolLibrary.dylib */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FAD0CD1A246F51F900AC2DA6 /* RogueToolLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				FA66F751246F6AF0001DC8D7 /* External */,
+				FA66F74F246F6AF0001DC8D7 /* Headers */,
+				FA66F74B246F6AF0001DC8D7 /* Runtime */,
+				FAD0CD22246F521300AC2DA6 /* initializer.s */,
+				FAD0CD1B246F51F900AC2DA6 /* RogueToolLibrary.swift */,
+			);
+			path = RogueToolLibrary;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FAD0CD17246F51F800AC2DA6 /* RogueToolLibrary */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAD0CD1F246F51F900AC2DA6 /* Build configuration list for PBXNativeTarget "RogueToolLibrary" */;
+			buildPhases = (
+				FAD0CD14246F51F800AC2DA6 /* Sources */,
+				FAD0CD15246F51F800AC2DA6 /* Frameworks */,
+				FAD0CD16246F51F800AC2DA6 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RogueToolLibrary;
+			productName = RogueToolLibrary;
+			productReference = FAD0CD18246F51F900AC2DA6 /* RogueToolLibrary.dylib */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FAD0CD10246F51F800AC2DA6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1140;
+				LastUpgradeCheck = 1140;
+				ORGANIZATIONNAME = Rogue;
+				TargetAttributes = {
+					FAD0CD17246F51F800AC2DA6 = {
+						CreatedOnToolsVersion = 11.4.1;
+						LastSwiftMigration = 1140;
+					};
+				};
+			};
+			buildConfigurationList = FAD0CD13246F51F800AC2DA6 /* Build configuration list for PBXProject "RogueToolLibrary" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FAD0CD0F246F51F800AC2DA6;
+			productRefGroup = FAD0CD19246F51F900AC2DA6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FAD0CD17246F51F800AC2DA6 /* RogueToolLibrary */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FAD0CD14246F51F800AC2DA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAD0CD23246F521300AC2DA6 /* initializer.s in Sources */,
+				FA66F754246F6AF8001DC8D7 /* RuntimeClass+Swift.swift in Sources */,
+				FAD0CD1C246F51F900AC2DA6 /* RogueToolLibrary.swift in Sources */,
+				FA66F753246F6AF6001DC8D7 /* RuntimeClass.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FAD0CD1D246F51F900AC2DA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FAD0CD1E246F51F900AC2DA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FAD0CD20246F51F900AC2DA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				EXECUTABLE_EXTENSION = dylib;
+				EXECUTABLE_PREFIX = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = RogueToolLibrary/Headers/BridgingHeader.h;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FAD0CD21246F51F900AC2DA6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				EXECUTABLE_EXTENSION = dylib;
+				EXECUTABLE_PREFIX = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = mh_dylib;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = RogueToolLibrary/Headers/BridgingHeader.h;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FAD0CD13246F51F800AC2DA6 /* Build configuration list for PBXProject "RogueToolLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAD0CD1D246F51F900AC2DA6 /* Debug */,
+				FAD0CD1E246F51F900AC2DA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAD0CD1F246F51F900AC2DA6 /* Build configuration list for PBXNativeTarget "RogueToolLibrary" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAD0CD20246F51F900AC2DA6 /* Debug */,
+				FAD0CD21246F51F900AC2DA6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FAD0CD10246F51F800AC2DA6 /* Project object */;
+}

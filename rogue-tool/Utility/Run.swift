@@ -42,12 +42,14 @@ struct System {
         }
         process.terminationHandler = { process in
             result.exitCode = process.terminationStatus
+            if (shouldPrint && result.exitCode != 0) {
+                print("warning: Command exit code: \(result.exitCode)")
+            }
             if blocking {
                 semaphore?.signal()
             } else {
                 onCompletion(result)
             }
-
         }
 
         if shouldPrint {
@@ -60,6 +62,16 @@ struct System {
             semaphore?.wait()
             onCompletion(result)
         }
+    }
+
+    @discardableResult
+    static func runLight(_ command: String) -> Bool {
+        var exitCode: Int32 = 0
+        run(command) {
+            exitCode = $0.exitCode
+        }
+
+        return exitCode == 0
     }
 }
 
@@ -81,3 +93,10 @@ class RunResult {
         }
     }
 }
+
+extension RunResult: CustomDebugStringConvertible {
+    var debugDescription: String {
+        return "<RunResult exitCode: \(exitCode) output: \(output)>"
+    }
+}
+
