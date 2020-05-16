@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FA46B4EE246F813F00BFC9B6 /* RogueFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = FA46B4EC246F813F00BFC9B6 /* RogueFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA46B4EE246F813F00BFC9B6 /* Rogue.h in Headers */ = {isa = PBXBuildFile; fileRef = FA46B4EC246F813F00BFC9B6 /* Rogue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA603C63246F8282001C1C5D /* RGELog.h in Headers */ = {isa = PBXBuildFile; fileRef = FA603C5B246F8282001C1C5D /* RGELog.h */; };
 		FA603C64246F8282001C1C5D /* RGELog.m in Sources */ = {isa = PBXBuildFile; fileRef = FA603C5C246F8282001C1C5D /* RGELog.m */; };
 		FA603C65246F8282001C1C5D /* RGEProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = FA603C5E246F8282001C1C5D /* RGEProxy.m */; };
@@ -19,7 +19,7 @@
 
 /* Begin PBXFileReference section */
 		FA46B4E9246F813F00BFC9B6 /* Rogue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rogue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FA46B4EC246F813F00BFC9B6 /* RogueFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RogueFramework.h; sourceTree = "<group>"; };
+		FA46B4EC246F813F00BFC9B6 /* Rogue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Rogue.h; sourceTree = "<group>"; };
 		FA46B4ED246F813F00BFC9B6 /* RogueFramework.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = RogueFramework.plist; sourceTree = "<group>"; };
 		FA603C5B246F8282001C1C5D /* RGELog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGELog.h; sourceTree = "<group>"; };
 		FA603C5C246F8282001C1C5D /* RGELog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RGELog.m; sourceTree = "<group>"; };
@@ -61,7 +61,7 @@
 		FA46B4EB246F813F00BFC9B6 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				FA46B4EC246F813F00BFC9B6 /* RogueFramework.h */,
+				FA46B4EC246F813F00BFC9B6 /* Rogue.h */,
 				FA46B4ED246F813F00BFC9B6 /* RogueFramework.plist */,
 			);
 			path = Resources;
@@ -106,7 +106,7 @@
 			files = (
 				FA603C68246F8282001C1C5D /* RGEProxy.h in Headers */,
 				FA603C63246F8282001C1C5D /* RGELog.h in Headers */,
-				FA46B4EE246F813F00BFC9B6 /* RogueFramework.h in Headers */,
+				FA46B4EE246F813F00BFC9B6 /* Rogue.h in Headers */,
 				FA603C69246F8282001C1C5D /* RogueHook.h in Headers */,
 				FA603C67246F8282001C1C5D /* RogueHook-Testing.h in Headers */,
 			);
