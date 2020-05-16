@@ -86,10 +86,19 @@ func injectLibrary() {
 
         let libraryUrl = URL(fileURLWithPath: library)
         let loadBlock = {
-            let handle = dlopen(library, RTLD_NOW)
+            var handle = dlopen(library, RTLD_NOLOAD)
+            if handle == nil {
+                handle = dlopen(library, RTLD_NOW)
+            }
 
             if handle == nil {
-                os_log("Failed to load library: %{public}s", log: log, dlerror())
+                os_log("Loading library failed!", log: log)
+                let rawError = dlerror()
+                if let rawError = rawError {
+                    let error = String(cString: rawError)
+                    os_log("dlerror: %{public}@", log: log, error)
+                }
+
             } else {
                 os_log("Injected: %{public}@", log: log, library)
             }
@@ -107,6 +116,5 @@ func injectLibrary() {
         } else {
             loadBlock()
         }
-
     }
 }
