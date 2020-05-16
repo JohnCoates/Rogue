@@ -73,6 +73,16 @@ struct System {
 
         return exitCode == 0
     }
+
+    @discardableResult
+    static func runOutput(_ command: String) -> String {
+        var output: String = ""
+        run(command) {
+            output = $0.output
+        }
+
+        return output
+    }
 }
 
 class RunResult {

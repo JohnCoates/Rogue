@@ -23,7 +23,6 @@ extension RogueTool {
         func run() {
             let injectionLibrary = buildLibrary()
             print("Injecting loader \(injectionLibrary)")
-            let device = "D7960CDD-217A-4757-B2ED-D6B048FE2C4B"
 
             libraries.forEach { library in
                 assert(FileManager.default.fileExists(atPath: library), "warning: \(library) doesn't exist")
@@ -31,15 +30,15 @@ extension RogueTool {
 
             assert(FileManager.default.fileExists(atPath: filterFile), "warning: \(filterFile) doesn't exist")
 
-            System.runLight("xcrun simctl spawn \(device) launchctl setenv ROGUE_LIBRARY \"\(libraries.joined(separator:"|"))\"")
-            System.runLight("xcrun simctl spawn \(device) launchctl setenv ROGUE_FILTER \"\(filterFile)\"")
+            System.runLight("xcrun simctl spawn booted launchctl setenv ROGUE_LIBRARY \"\(libraries.joined(separator:"|"))\"")
+            System.runLight("xcrun simctl spawn booted launchctl setenv ROGUE_FILTER \"\(filterFile)\"")
 
             setenv("SIMCTL_CHILD_DYLD_INSERT_LIBRARIES", injectionLibrary, 1)
             ["DYLD_INSERT_LIBRARIES", "__XPC_DYLD_INSERT_LIBRARIES"].forEach { key in
-                System.runLight("xcrun simctl spawn \(device) launchctl setenv \(key) \"\(injectionLibrary)\"")
+                System.runLight("xcrun simctl spawn booted launchctl setenv \(key) \"\(injectionLibrary)\"")
             }
 
-            System.runLight("xcrun simctl spawn \(device) launchctl stop com.apple.backboardd")
+            System.runLight("xcrun simctl spawn booted launchctl stop com.apple.backboardd")
         }
 
         func injectIntoDevices() {
