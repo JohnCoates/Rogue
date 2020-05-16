@@ -11,4 +11,4 @@ FOUNDATION_EXPORT double RogueFrameworkVersionNumber;
 //! Project version string for RogueFramework.
 FOUNDATION_EXPORT const unsigned char RogueFrameworkVersionString[];
 
-#import <RogueFramework/RogueHook.h>
+#import <Rogue/RogueHook.h>
