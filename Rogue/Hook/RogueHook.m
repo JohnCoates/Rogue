@@ -153,6 +153,8 @@ static Protocol *hookProtocol;
     Method originalMethod = class_getClassMethod(self.class, @selector(targetClass_original));
     [self addMethodToClass:targetClass fromClass:self.class method:originalMethod newName:@selector(original)];
 
+    NSArray <NSString *> *blacklistedMethods = @[@".cxx_destruct"];
+
     for (unsigned int methodIndex = 0; methodIndex < methodCount; methodIndex += 1) {
         Method hookMethod = methods[methodIndex];
         if (!hookMethod) {
@@ -166,9 +168,13 @@ static Protocol *hookProtocol;
             continue;
         }
 
-        NSString *originalStorePrefix = @"original_";
         NSString *hookMethodName = NSStringFromSelector(hookMethodSelector);
 
+        if ([blacklistedMethods containsObject:hookMethodName]) {
+            continue;
+        }
+
+        NSString *originalStorePrefix = @"original_";
         if ([hookMethodName hasPrefix:originalStorePrefix]) {
             continue;
         }
