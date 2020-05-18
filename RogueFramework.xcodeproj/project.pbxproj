@@ -15,7 +15,19 @@
 		FA603C67246F8282001C1C5D /* RogueHook-Testing.h in Headers */ = {isa = PBXBuildFile; fileRef = FA603C60246F8282001C1C5D /* RogueHook-Testing.h */; };
 		FA603C68246F8282001C1C5D /* RGEProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = FA603C61246F8282001C1C5D /* RGEProxy.h */; };
 		FA603C69246F8282001C1C5D /* RogueHook.h in Headers */ = {isa = PBXBuildFile; fileRef = FA603C62246F8282001C1C5D /* RogueHook.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FAB343BC2470C29600AB4995 /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB343BB2470C29600AB4995 /* Tests.m */; };
+		FAB343BE2470C29600AB4995 /* Rogue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA46B4E9246F813F00BFC9B6 /* Rogue.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FAB343BF2470C29600AB4995 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FA46B4E0246F813E00BFC9B6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FA46B4E8246F813F00BFC9B6;
+			remoteInfo = Rogue;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		FA46B4E9246F813F00BFC9B6 /* Rogue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Rogue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -28,6 +40,9 @@
 		FA603C60246F8282001C1C5D /* RogueHook-Testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RogueHook-Testing.h"; sourceTree = "<group>"; };
 		FA603C61246F8282001C1C5D /* RGEProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RGEProxy.h; sourceTree = "<group>"; };
 		FA603C62246F8282001C1C5D /* RogueHook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RogueHook.h; sourceTree = "<group>"; };
+		FAB343B92470C29600AB4995 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAB343BB2470C29600AB4995 /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
+		FAB343BD2470C29600AB4995 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +50,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAB343B62470C29600AB4995 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB343BE2470C29600AB4995 /* Rogue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,6 +69,7 @@
 			children = (
 				FA603C59246F8282001C1C5D /* Rogue */,
 				FA46B4EB246F813F00BFC9B6 /* Resources */,
+				FAB343BA2470C29600AB4995 /* Tests */,
 				FA46B4EA246F813F00BFC9B6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				FA46B4E9246F813F00BFC9B6 /* Rogue.framework */,
+				FAB343B92470C29600AB4995 /* Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -97,6 +122,15 @@
 			path = Hook;
 			sourceTree = "<group>";
 		};
+		FAB343BA2470C29600AB4995 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				FAB343BB2470C29600AB4995 /* Tests.m */,
+				FAB343BD2470C29600AB4995 /* Info.plist */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -123,7 +157,6 @@
 				FA46B4E5246F813F00BFC9B6 /* Sources */,
 				FA46B4E6246F813F00BFC9B6 /* Frameworks */,
 				FA46B4E7246F813F00BFC9B6 /* Resources */,
-				FA603C6B246F8308001C1C5D /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -133,6 +166,24 @@
 			productName = RogueFramework;
 			productReference = FA46B4E9246F813F00BFC9B6 /* Rogue.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		FAB343B82470C29600AB4995 /* Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAB343C32470C29600AB4995 /* Build configuration list for PBXNativeTarget "Tests" */;
+			buildPhases = (
+				FAB343B52470C29600AB4995 /* Sources */,
+				FAB343B62470C29600AB4995 /* Frameworks */,
+				FAB343B72470C29600AB4995 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FAB343C02470C29600AB4995 /* PBXTargetDependency */,
+			);
+			name = Tests;
+			productName = Tests;
+			productReference = FAB343B92470C29600AB4995 /* Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -144,6 +195,9 @@
 				ORGANIZATIONNAME = Rogue;
 				TargetAttributes = {
 					FA46B4E8246F813F00BFC9B6 = {
+						CreatedOnToolsVersion = 11.4.1;
+					};
+					FAB343B82470C29600AB4995 = {
 						CreatedOnToolsVersion = 11.4.1;
 					};
 				};
@@ -162,6 +216,7 @@
 			projectRoot = "";
 			targets = (
 				FA46B4E8246F813F00BFC9B6 /* Rogue */,
+				FAB343B82470C29600AB4995 /* Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -174,27 +229,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		FA603C6B246F8308001C1C5D /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
+		FAB343B72470C29600AB4995 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
 			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "mkdir -p \"$PROJECT_DIR/build\"\ncp \"$CODESIGNING_FOLDER_PATH/$EXECUTABLE_NAME\" \"$PROJECT_DIR/build/Rogue.$ARCHS.a\"\n\ncp -R \"$CODESIGNING_FOLDER_PATH\" \"$PROJECT_DIR/build/\"\n";
 		};
-/* End PBXShellScriptBuildPhase section */
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA46B4E5246F813F00BFC9B6 /* Sources */ = {
@@ -207,7 +249,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FAB343B52470C29600AB4995 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAB343BC2470C29600AB4995 /* Tests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FAB343C02470C29600AB4995 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FA46B4E8246F813F00BFC9B6 /* Rogue */;
+			targetProxy = FAB343BF2470C29600AB4995 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		FA46B4EF246F813F00BFC9B6 /* Debug */ = {
@@ -329,6 +387,7 @@
 		FA46B4F2246F813F00BFC9B6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -344,7 +403,7 @@
 				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rogue.framework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -352,6 +411,7 @@
 		FA46B4F3246F813F00BFC9B6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -367,7 +427,41 @@
 				MACH_O_TYPE = staticlib;
 				PRODUCT_BUNDLE_IDENTIFIER = com.rogue.framework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
+				SKIP_INSTALL = NO;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FAB343C12470C29600AB4995 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rogue.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FAB343C22470C29600AB4995 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = Tests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.rogue.Tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -389,6 +483,15 @@
 			buildConfigurations = (
 				FA46B4F2246F813F00BFC9B6 /* Debug */,
 				FA46B4F3246F813F00BFC9B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAB343C32470C29600AB4995 /* Build configuration list for PBXNativeTarget "Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAB343C12470C29600AB4995 /* Debug */,
+				FAB343C22470C29600AB4995 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
