@@ -117,9 +117,9 @@ struct PackageCommand: ParsableCommand {
             fatalError("Error: Can't install on device, no device host specified. Check Xcode build settings or set environment variable ROGUE_DEVICE_HOST.")
         }
         let filename = package.lastPathComponent
-        print("Warning: Transferring \(filename) to \(deviceHost)")
+        print("warning: Transferring \(filename) to \(deviceHost)")
         System.runLight("scp -P \(devicePort) \"\(package.path)\" root@\(deviceHost):\(filename)")
-        print("Warning: Installing package")
+        print("warning: Installing package")
         System.runLight("ssh -p \(devicePort) root@\(deviceHost) \"dpkg -i \(filename)\"")
 
         let terminate = self.terminate.map({"\"\($0)\""}).joined(separator: " ")
