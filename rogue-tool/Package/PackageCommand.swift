@@ -85,8 +85,23 @@ struct PackageCommand: ParsableCommand {
             }
         }
 
+        let dpkgPath = "/usr/local/bin/dpkg-deb"
+        if !fileManager.fileExists(atPath: dpkgPath) {
+            let brewPath = "/usr/local/bin/brew"
+            if fileManager.fileExists(atPath: brewPath) {
+                print("warning: dpkg not installed, installing with Homebrew")
+                System.runLight("brew install dpkg")
+            }
+
+            if !fileManager.fileExists(atPath: dpkgPath) {
+                print("error: Can't build package, dpkg not installed.")
+                print("error: Install dpkg with Homebrew from https://brew.sh")
+                print("error: run `brew install dpkg`")
+                fatalError("error: install dpkg before running again")
+            }
+        }
         let packageUrl = productsDirectory.appendingPathComponent(baseName + "_" + version + ".deb")
-        System.runLight("/usr/local/bin/dpkg-deb -b -Zgzip \"\(stagingDirectory.path)\" \"\(packageUrl.path)\"")
+        System.runLight("\(dpkgPath) -b -Zgzip \"\(stagingDirectory.path)\" \"\(packageUrl.path)\"")
         return packageUrl
     }
 
