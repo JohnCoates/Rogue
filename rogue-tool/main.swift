@@ -17,4 +17,5 @@ struct RogueTool: ParsableCommand {
     )
 }
 
+RunState.disablePrintBuffering()
 RogueTool.main()

@@ -17,5 +17,9 @@ struct RunState {
         FileManager.default.changeCurrentDirectoryPath(original)
         return result
     }
+
+    static func disablePrintBuffering() {
+        setbuf(__stdoutp, nil);
+    }
 }
 
