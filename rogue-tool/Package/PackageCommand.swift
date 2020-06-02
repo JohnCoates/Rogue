@@ -154,7 +154,7 @@ struct PackageCommand: ParsableCommand {
         System.runLight(passwordCommand + "ssh -p \(devicePort) root@\(deviceHost) \"dpkg -i \(filename)\"")
 
         let terminate = self.terminate.map({"\"\($0)\""}).joined(separator: " ")
-        System.runLight("ssh -p \(devicePort) root@\(deviceHost) \"killall \(terminate)\"")
+        System.runLight(passwordCommand + "ssh -p \(devicePort) root@\(deviceHost) \"killall \(terminate)\"")
     }
 
     func sshPassPath() -> String {
