@@ -100,6 +100,7 @@ struct PackageCommand: ParsableCommand {
                 fatalError("error: install dpkg before running again")
             }
         }
+
         let packageUrl = productsDirectory.appendingPathComponent(baseName + "_" + version + ".deb")
         System.runLight("\(dpkgPath) -b -Zgzip \"\(stagingDirectory.path)\" \"\(packageUrl.path)\"")
         return packageUrl
@@ -127,17 +128,53 @@ struct PackageCommand: ParsableCommand {
         return 22
     }
 
+    var devicePassword: String? {
+        let environment = ProcessInfo.processInfo.environment
+        if let password = environment["ROGUE_DEVICE_PASSWORD"], password.count > 0 {
+            return password
+        }
+
+        return nil
+    }
+
     func install(package: URL) {
         guard let deviceHost = deviceHost else {
             fatalError("error: Can't install on device, no device host specified. Check Xcode build settings or set environment variable ROGUE_DEVICE_HOST.")
         }
+
+        var passwordCommand = ""
+        if let devicePassword = devicePassword {
+            let sshPassPath = self.sshPassPath()
+            passwordCommand = "\(sshPassPath) -p \"\(devicePassword)\" "
+        }
         let filename = package.lastPathComponent
         print("warning: Transferring \(filename) to \(deviceHost)")
-        System.runLight("scp -P \(devicePort) \"\(package.path)\" root@\(deviceHost):\(filename)")
+        System.runLight(passwordCommand + "scp -P \(devicePort) \"\(package.path)\" root@\(deviceHost):\(filename)")
         print("warning: Installing package")
-        System.runLight("ssh -p \(devicePort) root@\(deviceHost) \"dpkg -i \(filename)\"")
+        System.runLight(passwordCommand + "ssh -p \(devicePort) root@\(deviceHost) \"dpkg -i \(filename)\"")
 
         let terminate = self.terminate.map({"\"\($0)\""}).joined(separator: " ")
         System.runLight("ssh -p \(devicePort) root@\(deviceHost) \"killall \(terminate)\"")
+    }
+
+    func sshPassPath() -> String {
+        let fileManager = FileManager.default
+        let path = "/usr/local/bin/sshpass"
+        if !fileManager.fileExists(atPath: path) {
+            let brewPath = "/usr/local/bin/brew"
+            if fileManager.fileExists(atPath: brewPath) {
+                print("warning: sshpass not installed, installing with Homebrew")
+                System.runLight("\(brewPath) install hudochenkov/sshpass/sshpass ")
+            }
+
+            if !fileManager.fileExists(atPath: path) {
+                print("error: Can't install package with password, sshpass not installed.")
+                print("error: Install sshpass with Homebrew from https://brew.sh")
+                print("error: run `brew install hudochenkov/sshpass/sshpass`")
+                fatalError("error: install sshpass before running again")
+            }
+        }
+
+        return path
     }
 }
