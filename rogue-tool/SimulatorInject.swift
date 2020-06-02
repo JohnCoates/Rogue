@@ -7,9 +7,9 @@ import Foundation
 import ArgumentParser
 
 extension RogueTool {
-    struct SimulatorInject: ParsableCommand {
+    struct SimulatorInjectCommand: ParsableCommand {
         static var configuration =
-            CommandConfiguration(abstract: "Inject into iOS simulator.")
+            CommandConfiguration(commandName: "simulator-inject", abstract: "Inject into iOS simulator.")
 
         @Flag(name: .long, help: "Whether the injection library should always be built. (development)")
         var build: Bool

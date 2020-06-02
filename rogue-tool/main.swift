@@ -10,9 +10,11 @@ struct RogueTool: ParsableCommand {
     static var configuration = CommandConfiguration(
         abstract: "A tool for development with Rouge.",
         version: "1.0.0",
-        subcommands: [SimulatorInject.self]
+        subcommands: [
+            SimulatorInjectCommand.self,
+            PackageCommand.self
+        ]
     )
-
 }
 
 RogueTool.main()
