@@ -59,7 +59,7 @@ struct PackageCommand: ParsableCommand {
                 do {
                     try fileManager.createDirectory(atPath: directory.path, withIntermediateDirectories: true, attributes: nil)
                 } catch let error {
-                    fatalError("Error: Failed creating \(directory): \(error)")
+                    fatalError("error: Failed creating \(directory): \(error)")
                 }
             }
         }
@@ -81,7 +81,7 @@ struct PackageCommand: ParsableCommand {
                 }
                 try fileManager.copyItem(at: source, to: destination)
             } catch let error {
-                fatalError("Error: Failed to copy \(source.path) to \(destination.path): \(error)")
+                fatalError("error: Failed to copy \(source.path) to \(destination.path): \(error)")
             }
         }
 
@@ -114,7 +114,7 @@ struct PackageCommand: ParsableCommand {
 
     func install(package: URL) {
         guard let deviceHost = deviceHost else {
-            fatalError("Error: Can't install on device, no device host specified. Check Xcode build settings or set environment variable ROGUE_DEVICE_HOST.")
+            fatalError("error: Can't install on device, no device host specified. Check Xcode build settings or set environment variable ROGUE_DEVICE_HOST.")
         }
         let filename = package.lastPathComponent
         print("warning: Transferring \(filename) to \(deviceHost)")
