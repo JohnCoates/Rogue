@@ -90,12 +90,12 @@ struct PackageCommand: ParsableCommand {
         return packageUrl
     }
 
-    var deviceIp: String? {
+    var deviceHost: String? {
         let environment = ProcessInfo.processInfo.environment
-        if let ip = environment["ROGUE_DEVICE_HOST"] {
-            return ip
-        } else if let ip = environment["THEOS_DEVICE_HOST"] {
-            return ip
+        if let host = environment["ROGUE_DEVICE_HOST"], host.count > 0 {
+            return host
+        } else if let host = environment["THEOS_DEVICE_IP"], host.count > 0 {
+            return host
         }
 
         return nil
@@ -113,16 +113,16 @@ struct PackageCommand: ParsableCommand {
     }
 
     func install(package: URL) {
-        guard let deviceIp = deviceIp else {
-            fatalError("Error: Can't install on device, no device IP specified. Check Xcode build settings or set environment variable ROGUE_DEVICE_HOST.")
+        guard let deviceHost = deviceHost else {
+            fatalError("Error: Can't install on device, no device host specified. Check Xcode build settings or set environment variable ROGUE_DEVICE_HOST.")
         }
         let filename = package.lastPathComponent
-        print("Warning: Transferring \(filename) to \(deviceIp)")
-        System.runLight("scp -P \(devicePort) \"\(package.path)\" root@\(deviceIp):\(filename)")
+        print("Warning: Transferring \(filename) to \(deviceHost)")
+        System.runLight("scp -P \(devicePort) \"\(package.path)\" root@\(deviceHost):\(filename)")
         print("Warning: Installing package")
-        System.runLight("ssh -p \(devicePort) root@\(deviceIp) \"dpkg -i \(filename)\"")
+        System.runLight("ssh -p \(devicePort) root@\(deviceHost) \"dpkg -i \(filename)\"")
 
         let terminate = self.terminate.map({"\"\($0)\""}).joined(separator: " ")
-        System.runLight("ssh -p \(devicePort) root@\(deviceIp) \"killall \(terminate)\"")
+        System.runLight("ssh -p \(devicePort) root@\(deviceHost) \"killall \(terminate)\"")
     }
 }
