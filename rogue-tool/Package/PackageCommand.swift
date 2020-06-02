@@ -90,7 +90,7 @@ struct PackageCommand: ParsableCommand {
             let brewPath = "/usr/local/bin/brew"
             if fileManager.fileExists(atPath: brewPath) {
                 print("warning: dpkg not installed, installing with Homebrew")
-                System.runLight("brew install dpkg")
+                System.runLight("\(brewPath) install dpkg")
             }
 
             if !fileManager.fileExists(atPath: dpkgPath) {
