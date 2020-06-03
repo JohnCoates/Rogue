@@ -69,8 +69,9 @@ struct PackageCommand: ParsableCommand {
         let filterUrl = URL(fileURLWithPath: filter)
         let baseName = libraryUrl.lastPathComponent.split(separator: ".")[0]
 
+        let libraryDestination = dynamicLibrariesDirectory.appendingPathComponent(libraryUrl.lastPathComponent)
         let copyFiles = [
-            libraryUrl: dynamicLibrariesDirectory.appendingPathComponent(libraryUrl.lastPathComponent),
+            libraryUrl: libraryDestination,
             filterUrl: dynamicLibrariesDirectory.appendingPathComponent("\(baseName).plist"),
             controlUrl: debianDirectory.appendingPathComponent("control")
         ]
@@ -84,6 +85,9 @@ struct PackageCommand: ParsableCommand {
                 fatalError("error: Failed to copy \(source.path) to \(destination.path): \(error)")
             }
         }
+
+        print("warning: Codesigning")
+        System.runLight("xcrun codesign -f -s - \"\(libraryDestination.path)\"")
 
         let dpkgPath = "/usr/local/bin/dpkg-deb"
         if !fileManager.fileExists(atPath: dpkgPath) {
